@@ -51,6 +51,12 @@ Do not create directories at the root of mounted_folders from the Sync webui sin
 * 8888 - Webui
 * 55555 - Listening port for Sync traffic
 
+# Configuration
+
+* modify sync.conf for all the preferences change
+* Please refer to the sample sync.conf configuration file. https://help.resilio.com/hc/en-us/articles/206178884-Running-Sync-in-configuration-mode
+* If you have SSL certificate, you can force the Sync webui to https
+
 # Help
 
 Additional info can be found at [help center](https://help.getsync.com).
