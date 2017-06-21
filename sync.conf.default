@@ -6,7 +6,8 @@
 
     "directory_root_policy" : "belowroot",
     "directory_root" : "/mnt/",
-
+    "use_upnp": false,
+    "send_statistics": false,
     "webui" :
     {
       	"listen" : "0.0.0.0:8888",
