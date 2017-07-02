@@ -7,10 +7,6 @@ FROM alpine
 MAINTAINER Resilio Inc. <support@resilio.com>
 LABEL com.resilio.version="2.5.4"
 
-ENV TIMEZONE Australia/Sydney
-
-RUN apk --no-cache add tzdata && ln -sf /usr/share/zoneinfo/${TIMEZONE} /etc/localtime && echo "${TIMEZONE}" > /etc/timezone
-
 ADD https://download-cdn.resilio.com/2.5.4/linux-x64/resilio-sync_x64.tar.gz /tmp/sync.tgz
 RUN tar -xf /tmp/sync.tgz -C /usr/bin rslsync && rm -f /tmp/sync.tgz
 
