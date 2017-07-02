@@ -7,6 +7,14 @@ FROM ubuntu
 MAINTAINER Resilio Inc. <support@resilio.com>
 LABEL com.resilio.version="2.5.4"
 
+ENV TZ 'Australia/Sydney'
+RUN echo $TZ > /etc/timezone && \
+    apt-get update && apt-get install -y tzdata && \
+    rm /etc/localtime && \
+    ln -snf /usr/share/zoneinfo/$TZ /etc/localtime && \
+    dpkg-reconfigure -f noninteractive tzdata && \
+    apt-get clean
+
 ADD https://download-cdn.resilio.com/2.5.4/linux-x64/resilio-sync_x64.tar.gz /tmp/sync.tgz
 RUN tar -xf /tmp/sync.tgz -C /usr/bin rslsync && rm -f /tmp/sync.tgz
 
