@@ -3,7 +3,7 @@
 # VERSION               0.1
 #
 
-FROM alpine
+FROM ubuntu
 MAINTAINER Resilio Inc. <support@resilio.com>
 LABEL com.resilio.version="2.5.4"
 
