@@ -50,7 +50,7 @@ Do not create directories at the root of mounted_folders from the Sync webui sin
 # Ports
 
 * 8888 (TCP) - Webui
-* 55555 (TCP/UDP) - Listening port for Sync traffic
+* 55555 (TCP/UDP) - Listening port for Sync traffic (UPNP is turned off by default in sync.conf.default as it is running in Docker container, you need to manually map the ports on hosts to container and your Internet router) 
 
 # Timezone
 
