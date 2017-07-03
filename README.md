@@ -51,6 +51,11 @@ Do not create directories at the root of mounted_folders from the Sync webui sin
 * 8888 - Webui
 * 55555 - Listening port for Sync traffic
 
+# Timezone
+
+* Add timezone correction for the container.
+* Modify the ENV in Dockerfile to reflect your local timezone
+
 # Configuration
 
 * modify sync.conf for all the preferences change
