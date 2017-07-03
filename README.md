@@ -45,11 +45,12 @@ Do not create directories at the root of mounted_folders from the Sync webui sin
 # Volume
 
 * /mnt/sync - State files and Sync folders
+* /mnt/mounted_folders - Other Sync folders
 
 # Ports
 
-* 8888 - Webui
-* 55555 - Listening port for Sync traffic
+* 8888 (TCP) - Webui
+* 55555 (TCP/UDP) - Listening port for Sync traffic
 
 # Timezone
 
@@ -60,5 +61,5 @@ Do not create directories at the root of mounted_folders from the Sync webui sin
 
 * modify sync.conf for all the preferences change
 * Please refer to the sample sync.conf configuration file. https://help.resilio.com/hc/en-us/articles/206178884-Running-Sync-in-configuration-mode
-* If you have SSL certificate, you can force the Sync webui to https
+* If you have SSL certificate, you can force the Sync webui to https. Or you can use Resilio self-issued certificate.
 
