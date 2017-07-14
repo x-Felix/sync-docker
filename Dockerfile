@@ -5,7 +5,7 @@
 
 FROM ubuntu
 MAINTAINER Resilio Inc. <support@resilio.com>
-LABEL com.resilio.version="2.5.5"
+LABEL com.resilio.version="2.5.6"
 
 ENV TZ 'Australia/Sydney'
 RUN echo $TZ > /etc/timezone && \
@@ -15,7 +15,7 @@ RUN echo $TZ > /etc/timezone && \
     dpkg-reconfigure -f noninteractive tzdata && \
     apt-get clean
 
-ADD https://download-cdn.resilio.com/2.5.5/linux-x64/resilio-sync_x64.tar.gz /tmp/sync.tgz
+ADD https://download-cdn.resilio.com/2.5.6/linux-x64/resilio-sync_x64.tar.gz /tmp/sync.tgz
 RUN tar -xf /tmp/sync.tgz -C /usr/bin rslsync && rm -f /tmp/sync.tgz
 
 COPY sync.conf.default /etc/
