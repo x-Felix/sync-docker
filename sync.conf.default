@@ -1,5 +1,5 @@
 {
-    "listening_port" : 55555,
+    "listening_port" : 46098,
     "storage_path" : "/mnt/sync/config",
     "vendor" : "docker",
     "display_new_version": false,
