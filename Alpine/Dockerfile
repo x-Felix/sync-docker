@@ -16,8 +16,8 @@ echo "${TZ}" > /etc/timezone && \
 apk del tzdata && \
 rm -rf /var/cache/apk/*
 
-ADD https://download-cdn.resilio.com/2.5.7/linux-armhf/resilio-sync_armhf.tar.gz /tmp/sync
-RUN cp /tmp/sync/rslsync /usr/bin/rslsync && rm -rf /tmp/sync
+ADD https://download-cdn.resilio.com/2.5.7/linux-armhf/resilio-sync_armhf.tar.gz /tmp/sync.tgz
+RUN tar -xf /tmp/sync.tgz -C /usr/bin rslsync && rm -f /tmp/sync.tgz
 
 COPY sync.conf.default /etc/
 COPY run_sync /usr/bin/
