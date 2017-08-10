@@ -9,7 +9,8 @@ LABEL com.resilio.version="2.5.7"
 
 ENV TZ 'Australia/Sydney'
 RUN apk update && \ 
-apk upgrade && \ apk add --update tzdata && \ 
+apk upgrade && \ 
+apk add --update tzdata && \ 
 cp /usr/share/zoneinfo/${TZ} /etc/localtime && \ 
 echo "${TZ}" > /etc/timezone && \
 apk del tzdata && \
