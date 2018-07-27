@@ -1,8 +1,3 @@
-# Resilio Sync
-#
-# VERSION               0.1
-#
-
 FROM ubuntu:latest
 MAINTAINER Resilio Inc. <support@resilio.com>
 LABEL com.resilio.version="2.6.0"
