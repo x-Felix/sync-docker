@@ -1,6 +1,6 @@
 FROM ubuntu:latest
 MAINTAINER Resilio Inc. <support@resilio.com>
-LABEL com.resilio.version="2.6.1"
+LABEL com.resilio.version="2.6.2"
 
 ENV TZ 'Australia/Sydney'
 RUN echo $TZ > /etc/timezone && \
@@ -10,7 +10,7 @@ RUN echo $TZ > /etc/timezone && \
     dpkg-reconfigure -f noninteractive tzdata && \
     apt-get clean
 
-ADD https://download-cdn.resilio.com/2.6.1/linux-x64/resilio-sync_x64.tar.gz /tmp/sync.tgz
+ADD https://download-cdn.resilio.com/2.6.2/linux-x64/resilio-sync_x64.tar.gz /tmp/sync.tgz
 RUN tar -xf /tmp/sync.tgz -C /usr/bin rslsync && rm -f /tmp/sync.tgz
 
 COPY sync.conf.default /etc/
