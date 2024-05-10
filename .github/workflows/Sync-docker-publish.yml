@@ -6,8 +6,8 @@ name: SyncDocker
 # documentation.
 
 on:
-  schedule:
-    - cron: '32 2 1 * *'
+#  schedule:
+#    - cron: '32 2 1 * *'
   push:
     branches: [ master ]
     # Publish semver tags as releases.
