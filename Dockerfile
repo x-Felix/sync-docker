@@ -10,7 +10,7 @@ RUN echo $TZ > /etc/timezone && \
     dpkg-reconfigure -f noninteractive tzdata && \
     apt-get clean
 
-ADD https://download-cdn.resilio.com/stable/linux/x64/0/resilio-sync_x64.tar.gz /tmp/sync.tgz
+ADD https://download-cdn.resilio.com/3.0.1.1414/linux/x64/0/resilio-sync_x64.tar.gz /tmp/sync.tgz
 RUN tar -xf /tmp/sync.tgz -C /usr/bin rslsync && rm -f /tmp/sync.tgz
 
 COPY sync.conf.default /etc/
