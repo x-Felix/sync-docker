@@ -1,6 +1,6 @@
 FROM ubuntu:latest
 MAINTAINER Resilio Inc. <support@resilio.com>
-LABEL com.resilio.version="3.0"
+LABEL com.resilio.version="3.0.1"
 
 ENV TZ 'Australia/Sydney'
 RUN echo $TZ > /etc/timezone && \
