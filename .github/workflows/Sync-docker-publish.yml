@@ -88,4 +88,7 @@ jobs:
         env:
           DIGEST: ${{ steps.build-and-push.outputs.digest }}
           IMAGE: ${{ env.REGISTRY }}/${{ env.IMAGE_NAME }}
-        run: cosign sign --yes "${IMAGE}@${DIGEST}"
+        run: |
+          # image references must be lowercase (repo owner has capitals)
+          IMAGE="${IMAGE,,}"
+          cosign sign --yes "${IMAGE}@${DIGEST}"
