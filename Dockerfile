@@ -1,17 +1,23 @@
-FROM ubuntu:latest
-MAINTAINER Resilio Inc. <support@resilio.com>
+FROM debian:trixie-slim
+
 LABEL com.resilio.version="3.1.3"
+LABEL org.opencontainers.image.authors="Resilio Inc. <support@resilio.com>"
 
-ENV TZ 'Australia/Sydney'
-RUN echo $TZ > /etc/timezone && \
-    apt-get update && apt-get install -y tzdata && \
-    rm /etc/localtime && \
-    ln -snf /usr/share/zoneinfo/$TZ /etc/localtime && \
-    dpkg-reconfigure -f noninteractive tzdata && \
-    apt-get clean
+ARG RSL_URL=https://download-cdn.resilio.com/3.1.3.1080/linux/x64/0/resilio-sync_x64.tar.gz
+ARG RSL_SHA256=4c4ebf8cdf992682843cd13baee307cc569615dfe1e4ba3c5061734bd7117e9b
 
-ADD https://download-cdn.resilio.com/3.1.3.1080/linux/x64/0/resilio-sync_x64.tar.gz /tmp/sync.tgz
-RUN tar -xf /tmp/sync.tgz -C /usr/bin rslsync && rm -f /tmp/sync.tgz
+ENV TZ=Australia/Sydney
+
+RUN apt-get update \
+ && apt-get install -y --no-install-recommends ca-certificates curl tzdata \
+ && ln -snf "/usr/share/zoneinfo/$TZ" /etc/localtime \
+ && echo "$TZ" > /etc/timezone \
+ && curl -fsSL -o /tmp/sync.tgz "$RSL_URL" \
+ && echo "${RSL_SHA256}  /tmp/sync.tgz" | sha256sum -c - \
+ && tar -xf /tmp/sync.tgz -C /usr/bin rslsync \
+ && rm -f /tmp/sync.tgz \
+ && apt-get purge -y --auto-remove curl \
+ && rm -rf /var/lib/apt/lists/*
 
 COPY sync.conf.default /etc/
 COPY run_sync /usr/bin/
